@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OrderServiceApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("server.servlet.context-path", "/adminservices");
 		SpringApplication.run(OrderServiceApplication.class, args);
 	}
 

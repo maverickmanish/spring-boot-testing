@@ -8,3 +8,5 @@ spring:
       ddl-auto: create-drop
     show-sql: true
     generate-ddl: true
+server:
+  port: 8011
