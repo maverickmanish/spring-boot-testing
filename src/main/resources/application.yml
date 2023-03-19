@@ -10,3 +10,6 @@ spring:
     generate-ddl: true
 server:
   port: 8011
+adminuserprivilege:
+  name:
+    role_management_view:"Role Management View"

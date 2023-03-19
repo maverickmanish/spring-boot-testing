@@ -4,22 +4,39 @@ package com.rest.order.dao;
 import com.rest.order.constants.DaoConstants;
 import com.rest.order.controllers.reftype.RoleType;
 import com.rest.order.models.roles.AdminPrivilegeEntity;
+import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversal;
 import org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.GraphTraversalSource;
+import org.apache.tinkerpop.gremlin.structure.Edge;
 import org.apache.tinkerpop.gremlin.structure.T;
+import org.apache.tinkerpop.gremlin.structure.Vertex;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 
+import static org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__.V;
+import static org.apache.tinkerpop.gremlin.process.traversal.dsl.graph.__.addV;
+
 @Repository
 public class AdminPrivilegeDaoImpl implements AdminPrivilegeDao {
 
     @Autowired
     private GraphTraversalSource readerGraphTraversalSource;
+    //        GraphTraversal<Vertex, Edge> traverse = readerGraphTraversalSource.addV("ADMINUSERENTITY")
+//                .property("name", "manish")
+//                .property("email", "email")
+//                .property("employeeCode", "1234")
+//                .property("phoneNumber", "988796875")
+//                // saving encrypted password in Db
+//                // .property("password", aes256EncryptionUtil.encrypt(rolePrivilegeAdminSignUp.getPassword()))
+//                .addE("HAS_ROLE").to(V(0)).outV()
+//                .addE("HAS_PRIVILEGES").to(addV("ADMIN_USER_PRIVILEGE_ENTITY").property("privileges", "x,y,z"));
+//        String s = traverse.next().outVertex().id().toString();
 
     @Override
     public List<AdminPrivilegeEntity> getAllPrivileges() {
+
         List<Map<Object, Object>> adminPrivilegeList = readerGraphTraversalSource.V()
                 .hasLabel(DaoConstants.ADMIN_PRIVILEGE_ENTITY).elementMap().toList();
         List<AdminPrivilegeEntity> privilegesList = new ArrayList<>();

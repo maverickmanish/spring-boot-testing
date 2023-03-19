@@ -78,6 +78,21 @@ public class RolePrivilegesUtil {
         return response;
     }
 
+//    public static String getPrivilegeType(String roleName) {
+//        String privilegeType;
+//        switch (RoleType.valueOf(roleName.toUpperCase())) {
+//            case ADMIN_EDITOR:
+//                privilegeType = DaoConstants.IS_EDITOR_PRIVILEGE;
+//                break;
+//            case SUPERADMIN:
+//                privilegeType = DaoConstants.IS_ADMIN_PRIVILEGE;
+//                break;
+//            default:
+//                privilegeType = DaoConstants.IS_VIEW_PRIVILEGE;
+//        }
+//        return privilegeType;
+//    }
+
     public static String getPrivilegeType(String roleName) {
         String privilegeType;
         switch (roleName) {
